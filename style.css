@@ -1,0 +1,63 @@
+/* resets */
+body,
+ul,
+li,
+p,
+a {
+    margin: 0;
+    padding: 0; 
+}
+
+.fas {
+    font-size: 40px; 
+    color: white; 
+}
+.header {
+    display: flex; 
+}
+body {
+  background-color: #5dffb6;
+}
+
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  /* z-index: 1; */
+  /* background-color: white; */
+}
+  .login-form{
+      width: 50%;
+      height: 50%;
+      padding: 50px;
+      background-color: white;
+   
+      /* display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; */
+  }
+  
+  /* display: flex;
+  position: relative;
+  background-color: white;
+  /* height: 100vh; */
+  /* margin-top: 250px; */
+   /* */
+  /* width: 50%; */
+  /* justify-content: center;
+  align-items: center; */
+  /* padding: 30px;  */
+}
+.inputs {
+    width: 100%; 
+}
+.login-btn {
+    width: 100%;
+    padding: 10px; 
+}
