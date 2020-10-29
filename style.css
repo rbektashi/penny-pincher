@@ -27,9 +27,9 @@ a {
 }
 body {
   background: #01ffdf;
-  background: -webkit-radial-gradient(center, #01ffdf, #01ad8b);
-  background: -moz-radial-gradient(center, #01ffdf, #01ad8b);
   background: radial-gradient(ellipse at center, #01ffdf, #01ad8b);
+  height: 100vh;
+  width: 100%;
 }
 
 .form-container {
@@ -88,4 +88,26 @@ body {
 }
 .link {
   text-decoration: none;
+}
+
+.display-none {
+  display: none;
+}
+.header-2 {
+  font-family: "Lobster Two", cursive;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+}
+.fa-hamburger {
+  color: white;
+  font-size: 30px;
+}
+
+.week-block {
+  background-color: white;
+  border: 5px solid;
+  padding: 10px;
 }
