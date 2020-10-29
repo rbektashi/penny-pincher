@@ -20,7 +20,7 @@ form.addEventListener("submit", (e) => {
   let name = snapshot.get("username");
   let username = document.createElement("p");
   username.innerText = name;
-  formUsername.innerHTML = `<i class="fas fa-user-circle"></i> ${name}`;
+  formUsername.innerHTML = `Hello! <i class="fas fa-user-circle"></i> ${name}`;
   console.log(name);
 });
 
@@ -88,3 +88,9 @@ let display = () => {
   });
 };
 display();
+
+slideout.addEventListener("click", (e) => {
+  if (e.target.classList.contains("slideout")) {
+    slideout.classList.toggle("display-none");
+  }
+});
