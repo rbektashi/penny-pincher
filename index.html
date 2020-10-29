@@ -1,48 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>piggy bank buddy</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>piggy bank buddy</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
-</head>
+  <body>
+    <main></main>
+    <form class="form-container">
+      <div class="branding">
+        <h1>Penny Pincher</h1>
+      </div>
+      <img class="logo-pig" src="assets/saving.svg" alt="Pig Logo" />
+      <div class="login-form">
+        <label class="labels" for="username"
+          ><i class="fas fa-user-circle"></i> Username</label
+        >
+        <input class="inputs" type="text" id="username" name="username" />
+        <label class="labels" for="password"
+          ><i class="fas fa-key"></i> Password</label
+        >
+        <input class="inputs" type="password" id="password" name="password" />
+        <button class="login-btn">Start Budgeting</button>
+        <a class="link" href="#">
+          <p class="forgot">Oops! I forgot my password</p>
+        </a>
+      </div>
+    </form>
 
-<body>
-  <main>
-
-  </main>
-  <form class="form-container">
-    <div class="branding">
-      <h1>Penny Pincher</h1>
+    <div class="weeks-container display-none">
+      <header class="header-2">
+        <h1 class="logo2">Penny Pincher</h1>
+        <i class="fas fa-hamburger"></i>
+      </header>
+      <div class="slideout popup display-none">
+        <form class="main-form">
+          <p class="username-add"></p>
+          <label for="">Total Monayyyyy</label>
+          <input class="slideout-input" type="text" />
+          <label for=""></label>
+          <input class="slideout-input" type="text" />
+        </form>
+      </div>
     </div>
-    <img class="logo-pig" src="assets/saving.svg" alt="Pig Logo" />
-    <div class="login-form">
-      <label class="labels" for="username"><i class="fas fa-user-circle"></i> Username</label>
-      <input class="inputs" type="text" id="username" name="username" />
-      <label class="labels" for="password"><i class="fas fa-key"></i> Password</label>
-      <input class="inputs" type="password" id="password" name="password" />
-      <button class="login-btn">Start Budgeting</button>
-      <a class="link" href="#">
-        <p class="forgot">Oops! I forgot my password</p>
-      </a>
-    </div>
-  </form>
 
-  <div class="weeks-container display-none">
-    <header class="header-2">
-      <h1 class="logo2">Penny Pincher</h1>
-      ><i class="fas fa-hamburger"></i>
-    </header>
-
-  </div>
-
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
