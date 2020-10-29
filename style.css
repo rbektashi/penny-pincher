@@ -107,7 +107,59 @@ body {
 }
 
 .week-block {
-  background-color: white;
-  border: 5px solid;
+  /* background: linear-gradient(
+    to right,
+    #ffffff,
+    #ece9e6
+  ); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: white;
+
   padding: 10px;
+  font-family: "Roboto", sans-serif;
+  border: 1px solid #01ffdf;
+  color: black;
+}
+.week-style {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.ent-size {
+  height: 30px;
+  width: 30px;
+}
+.calendar-img {
+  margin: 0px 3px;
+}
+.weeks-container {
+  position: relative;
+}
+.slideout {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+.main-form {
+  text-align: center;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  height: 100vh;
+  width: 70%;
+  background: #01c9a8;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+}
+.username-add {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+}
+.slidout-input {
+  margin-top: 6px;
 }
