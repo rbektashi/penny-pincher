@@ -4,60 +4,88 @@ ul,
 li,
 p,
 a {
-    margin: 0;
-    padding: 0; 
+  margin: 0;
+  padding: 0;
 }
-
-.fas {
-    font-size: 40px; 
-    color: white; 
+.branding {
+  font-family: "Lobster Two", cursive;
+  font-size: 14px;
+  display: absolute;
+}
+.logo-pig {
+  height: 100px;
+  width: 200px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.4));
 }
 .header {
-    display: flex; 
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
 }
 body {
-  background-color: #5dffb6;
+  background: #01ffdf;
+  background: -webkit-radial-gradient(center, #01ffdf, #01ad8b);
+  background: -moz-radial-gradient(center, #01ffdf, #01ad8b);
+  background: radial-gradient(ellipse at center, #01ffdf, #01ad8b);
 }
-
 
 .form-container {
   display: flex;
+  display: relative;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  padding: 10px;
   width: 100%;
-  height: 100%;
-  /* z-index: 1; */
-  /* background-color: white; */
+  height: 100vh;
 }
-  .login-form{
-      width: 50%;
-      height: 50%;
-      padding: 50px;
-      background-color: white;
-   
-      /* display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed; */
-  }
-  
-  /* display: flex;
-  position: relative;
-  background-color: white;
-  /* height: 100vh; */
-  /* margin-top: 250px; */
-   /* */
-  /* width: 50%; */
-  /* justify-content: center;
-  align-items: center; */
-  /* padding: 30px;  */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 200px;
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  border-radius: 25px;
+  justify-content: space-around;
 }
 .inputs {
-    width: 100%; 
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid white;
+  background: transparent;
+  color: white;
+  outline: none;
+}
+::placeholder {
+  color: black;
 }
 .login-btn {
-    width: 100%;
-    padding: 10px; 
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 7px;
+  background: white;
+  color: black;
+}
+.labels {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+.forgot {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 11px;
+}
+.link {
+  text-decoration: none;
 }
