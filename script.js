@@ -64,7 +64,7 @@ burgerNavigation.addEventListener("click", (e) => {
 });
 
 let display = () => {
-  weeks.forEach((item) => {
+  weeks.forEach((item, index) => {
     let weeks = document.createElement("div");
     weeks.classList.add("week-block");
     let week = document.createElement("p");
@@ -83,7 +83,11 @@ let display = () => {
     let bills = document.createElement("p");
     bills.innerText = item.bills;
     bills.innerHTML = `<img class="ent-size" src="assets/home.svg"/> Bills: $${item.bills}`;
-    weeks.append(week, entertainment, food, clothing, bills);
+    let deletebutton = document.createElement("button");
+    deletebutton.innerText = "X";
+    deletebutton.setAttribute("data-index", index);
+    deletebutton.classList.add("delete");
+    weeks.append(week, entertainment, food, clothing, bills, deletebutton);
     weeksContainer.append(weeks);
   });
 };
@@ -94,3 +98,13 @@ slideout.addEventListener("click", (e) => {
     slideout.classList.toggle("display-none");
   }
 });
+// weeksContainer.addEventListener("click", (e) => {
+//   weeksContainer.innerHTML = "";
+//   if (e.target.classList.contains("delete")) {
+//     let index = e.target.getAttribute("data-index");
+//     console.log(index);
+//     weeks.splice(index, 1);
+//     console.log(weeks);
+//   }
+//   display();
+// });
