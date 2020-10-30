@@ -7,6 +7,7 @@ a {
   margin: 0;
   padding: 0;
 }
+
 .branding {
   font-family: "Lobster Two", cursive;
   font-size: 14px;
@@ -94,16 +95,22 @@ body {
   display: none;
 }
 .header-2 {
+  position: fixed;
   font-family: "Lobster Two", cursive;
   font-size: 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 5px;
+  box-shadow: grey 0 5px 5px;
+  background-color: #01c9a8;
+  width: 100%;
+  padding: 0 10px;
+  z-index: 2;
 }
 .fa-hamburger {
   color: white;
   font-size: 30px;
+  padding-right: 30px;
 }
 
 .week-block {
@@ -112,11 +119,10 @@ body {
     #ffffff,
     #ece9e6
   ); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: white;
-
+  background-color: white;
+  border: 1px black solid;
   padding: 10px;
   font-family: "Roboto", sans-serif;
-  border: 1px solid #01ffdf;
   color: black;
 }
 .week-style {
@@ -133,10 +139,11 @@ body {
   margin: 0px 3px;
 }
 .weeks-container {
+  padding-top: 75px;
   position: relative;
 }
 .slideout {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
