@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>piggy bank buddy</title>
+  <title>Penny</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -42,8 +42,8 @@
       <form class="main-form">
         <img class="slideout-brand" src="assets/pigcoin.svg" alt="">
         <p class="username-add"></p>
-        <div class="total-cash"></div>
-        <div class="remove-cash">
+        <div class="container-cash"> Total: $<span class="total-cash"></span> </div>
+        <div class=" remove-cash">
           <label class="cash-label" for=""></label>
           <input class="slideout-input" type="number" placeholder="Starting Budget" id="moolah" name="moolah" />
           <button class="add-moolah">Add Moolah</button>
@@ -58,10 +58,12 @@
           </select>
           <button class="submit-category">Submit Category</button>
         </div>
-        <p> Entertainment </p>
-        <p> Food </p>
-        <p> Clothing </p>
-        <p> Bills </p>
+        <div class="category-icons">
+          <p class="icon"> <img class="ent-size" src="assets/ticket (2).svg" /> Entertainment </p>
+          <p class="icon"> <img class="ent-size" src="assets/vegetables.svg" /> Food </p>
+          <p class="icon"> <img class="ent-size" src="assets/hoodie.svg" /> Clothing </p>
+          <p class="icon"> <img class="ent-size" src="assets/home.svg" /> Bills </p>
+        </div>
 
 
 
