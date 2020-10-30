@@ -114,6 +114,8 @@ body {
 }
 
 .week-block {
+  display: flex;
+  flex-direction: column;
   /* background: linear-gradient(
     to right,
     #ffffff,
@@ -203,4 +205,17 @@ body {
   position: relative;
 }
 .delete {
+  display: flex;
+  justify-content: flex-end;
+  background: none;
+  border: none;
+}
+
+.delete-icon {
+  height: 25px;
+  width: 25px;
+  border: none;
+}
+.total-cash {
+  font-size: 18px;
 }
