@@ -98,13 +98,13 @@ slideout.addEventListener("click", (e) => {
     slideout.classList.toggle("display-none");
   }
 });
-// weeksContainer.addEventListener("click", (e) => {
-//   weeksContainer.innerHTML = "";
-//   if (e.target.classList.contains("delete")) {
-//     let index = e.target.getAttribute("data-index");
-//     console.log(index);
-//     weeks.splice(index, 1);
-//     console.log(weeks);
-//   }
-//   display();
-// });
+weeksContainer.addEventListener("click", (e) => {
+  weeksContainer.innerHTML = "";
+  if (e.target.classList.contains("delete")) {
+    let index = e.target.getAttribute("data-index");
+    console.log(index);
+    weeks.splice(index, 1);
+    console.log(weeks);
+  }
+  display();
+});
