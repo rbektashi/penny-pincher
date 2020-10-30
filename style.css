@@ -201,7 +201,7 @@ body {
   display: inline-block;
   align-self: center;
 }
-.week-cards {
+.week-cards: {
   position: relative;
 }
 .delete {
@@ -209,6 +209,7 @@ body {
   justify-content: flex-end;
   background: none;
   border: none;
+  align-items: ;
 }
 
 .delete-icon {
@@ -218,4 +219,8 @@ body {
 }
 .total-cash {
   font-size: 18px;
+}
+
+button:hover {
+  background-color: green;
 }
