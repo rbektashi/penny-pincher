@@ -121,7 +121,7 @@ addMoolah.addEventListener("click", (e) => {
   let cashplus = document.createElement("p");
   cashplus.innerText = cash;
   console.log(cash);
-  totalCash.append(`Total: $${cash}`);
+  totalCash.append(`${cash}`);
   removeCashForm.classList.add("display-none");
   showCategory.classList.remove("display-none");
 });
@@ -130,8 +130,22 @@ let submitCategory = document.querySelector(".submit-category");
 submitCategory.addEventListener("click", (e) => {
   e.preventDefault();
   let category = new FormData(mainForm);
-  let categoryNew = category.get("amount");
-  let categorySelected = document.createElement("div");
-  categorySelected.innerText = categoryNew;
-  console.log(categorySelected);
+  let categoryAmt = category.get("amount");
+  // let categorySelected = document.createElement("div");
+  let categoryType = category.get("category");
+  let categoryIcon = document.createElement("div");
+  categoryIcon.innerText = ` ${categoryAmt} ${categoryType}`;
+  console.log(categoryIcon);
+
+  let total = parseFloat(totalCash.innerText);
+
+  totalCash.innerText = "";
+  let x = total;
+  let y = categoryAmt;
+  let updatedTotal = x - y;
+  totalCash.append(updatedTotal);
+  // category.set("moolah", updatedTotal);
+  if (updatedTotal <= 10) {
+    alert("Watch out, you're almost broke!");
+  }
 });
