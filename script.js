@@ -84,7 +84,7 @@ let display = () => {
     bills.innerText = item.bills;
     bills.innerHTML = `<img class="ent-size" src="assets/home.svg"/> Bills: $${item.bills}`;
     let deletebutton = document.createElement("button");
-    deletebutton.innerText = "X";
+    deletebutton.innerHTML = `<img class="delete-icon delete" src="assets/delete.svg" />`;
     deletebutton.setAttribute("data-index", index);
     deletebutton.classList.add("delete");
     weeks.append(week, entertainment, food, clothing, bills, deletebutton);
@@ -107,4 +107,31 @@ weeksContainer.addEventListener("click", (e) => {
     console.log(weeks);
   }
   display();
+});
+let addMoolah = document.querySelector(".add-moolah");
+let mainForm = document.querySelector(".main-form");
+let totalCash = document.querySelector(".total-cash");
+let removeCashForm = document.querySelector(".remove-cash");
+let categoryForm = document.querySelector(".category-form");
+let showCategory = document.querySelector(".show-category");
+addMoolah.addEventListener("click", (e) => {
+  e.preventDefault();
+  let cashAdd = new FormData(mainForm);
+  let cash = cashAdd.get("moolah");
+  let cashplus = document.createElement("p");
+  cashplus.innerText = cash;
+  console.log(cash);
+  totalCash.append(`Total: $${cash}`);
+  removeCashForm.classList.add("display-none");
+  showCategory.classList.remove("display-none");
+});
+
+let submitCategory = document.querySelector(".submit-category");
+submitCategory.addEventListener("click", (e) => {
+  e.preventDefault();
+  let category = new FormData(mainForm);
+  let categoryNew = category.get("amount");
+  let categorySelected = document.createElement("div");
+  categorySelected.innerText = categoryNew;
+  console.log(categorySelected);
 });
