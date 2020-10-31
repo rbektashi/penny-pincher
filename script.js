@@ -139,13 +139,13 @@ submitCategory.addEventListener("click", (e) => {
 
   let total = parseFloat(totalCash.innerText);
 
-  totalCash.innerText = "";
   let x = total;
   let y = categoryAmt;
   let updatedTotal = x - y;
-  totalCash.append(updatedTotal);
-  // category.set("moolah", updatedTotal);
-  if (updatedTotal <= 10) {
-    alert("Watch out, you're almost broke!");
+  if (updatedTotal < 0) {
+    alert("Watch out, you're broke!");
+  } else {
+    totalCash.innerText = "";
+    totalCash.append(updatedTotal);
   }
 });
