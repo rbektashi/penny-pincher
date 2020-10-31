@@ -12,6 +12,8 @@ class newItem {
 // set defaults to zero for activity and categories ||| used to get updated totals
 let activityList = [];
 let dollarsSpent = [0, 0, 0, 0];
+let totalCashSpent = 0;
+let totalBudget = 0;
 // hiding landing page to show main content
 submitBtn.addEventListener("click", (e) => {
   form.classList.add("display-none");
@@ -129,6 +131,7 @@ addMoolah.addEventListener("click", (e) => {
   cashplus.innerText = cash;
   console.log(cash);
   totalCash.append(`${cash}`);
+  totalBudget = Number(cash);
   removeCashForm.classList.add("display-none");
   showCategory.classList.remove("display-none");
 });
@@ -157,6 +160,11 @@ submitCategory.addEventListener("click", (e) => {
     totalCash.append(updatedTotal);
   }
   const priceofitem = Number(document.querySelector("#amount").value);
+  if (priceofitem > 0) {
+    totalCashSpent += priceofitem;
+    totalBar();
+  }
+  console.log(totalCashSpent);
   console.log(priceofitem);
   const categoryIdentify = document.querySelector("#category");
   const categoryName =
@@ -172,6 +180,7 @@ submitCategory.addEventListener("click", (e) => {
   const buyIndex = categoryIdentify.selectedIndex;
   refreshTotals(buyIndex, newestPurchase.price);
   // updateActivity();
+  mainForm.reset();
 });
 // switch declaration to keep totals working correctly
 let refreshTotals = (category, price = 0) => {
@@ -194,3 +203,15 @@ let refreshTotals = (category, price = 0) => {
   totalDisplay.innerHTML = `$${dollarsSpent[category].toFixed(2)}`;
   console.log(dollarsSpent);
 };
+
+function totalBar() {
+  const percentageBar = (totalCashSpent / totalBudget) * 100;
+  document.getElementById("myBar").style.width = `${percentageBar}%`;
+  document.getElementById(
+    "myBar"
+  ).innerHTML = `<img class="coin-bar" src="assets/pigcoin.svg" />${totalCashSpent}`;
+  if (totalBudget < totalCashSpent) {
+    document.getElementById("myBar").style.width = `100%`;
+  }
+  console.log(percentageBar);
+}
