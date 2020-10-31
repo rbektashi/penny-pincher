@@ -1,21 +1,26 @@
 "use-strict";
-
-//  creating code to remove form.
-
+// main form declaration
 let form = document.querySelector(".form-container");
-
 let submitBtn = document.querySelector(".login-btn");
-
+// constructor for transaction item
+class newItem {
+  constructor(price, category) {
+    this.price = price;
+    this.category = category;
+  }
+}
+// set defaults to zero for activity and categories ||| used to get updated totals
+let activityList = [];
+let dollarsSpent = [0, 0, 0, 0];
+// hiding landing page to show main content
 submitBtn.addEventListener("click", (e) => {
   form.classList.add("display-none");
   weeksContainer.classList.remove("display-none");
 });
-
+// setting username on main screen
 let formUsername = document.querySelector(".username-add");
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   let snapshot = new FormData(form);
   let name = snapshot.get("username");
   let username = document.createElement("p");
@@ -23,7 +28,7 @@ form.addEventListener("submit", (e) => {
   formUsername.innerHTML = `Hello! <i class="fas fa-user-circle"></i> ${name}`;
   console.log(name);
 });
-
+// static data for user
 let weeks = [
   {
     week: "Week Four",
@@ -62,7 +67,7 @@ burgerNavigation.addEventListener("click", (e) => {
   e.preventDefault();
   slideout.classList.toggle("display-none");
 });
-
+// populating static data to main content page
 let display = () => {
   weeks.forEach((item, index) => {
     let weeks = document.createElement("div");
@@ -92,12 +97,13 @@ let display = () => {
   });
 };
 display();
-
+// hiding side panel on slideout click
 slideout.addEventListener("click", (e) => {
   if (e.target.classList.contains("slideout")) {
     slideout.classList.toggle("display-none");
   }
 });
+// delete week by clicking trash can
 weeksContainer.addEventListener("click", (e) => {
   weeksContainer.innerHTML = "";
   if (e.target.classList.contains("delete")) {
@@ -108,6 +114,7 @@ weeksContainer.addEventListener("click", (e) => {
   }
   display();
 });
+// query selectors to dynamically track total budget
 let addMoolah = document.querySelector(".add-moolah");
 let mainForm = document.querySelector(".main-form");
 let totalCash = document.querySelector(".total-cash");
@@ -125,27 +132,71 @@ addMoolah.addEventListener("click", (e) => {
   removeCashForm.classList.add("display-none");
   showCategory.classList.remove("display-none");
 });
-
+// main functionality to re render total and capture transaction data
 let submitCategory = document.querySelector(".submit-category");
 submitCategory.addEventListener("click", (e) => {
   e.preventDefault();
   let category = new FormData(mainForm);
   let categoryAmt = category.get("amount");
-  // let categorySelected = document.createElement("div");
   let categoryType = category.get("category");
   let categoryIcon = document.createElement("div");
   categoryIcon.innerText = ` ${categoryAmt} ${categoryType}`;
   console.log(categoryIcon);
-
   let total = parseFloat(totalCash.innerText);
-
+  totalCash.innerText = "";
   let x = total;
   let y = categoryAmt;
   let updatedTotal = x - y;
   if (updatedTotal < 0) {
     alert("Watch out, you're broke!");
+    let cryingPig = document.querySelector(".slideout-brand");
+    cryingPig.src = "assets/cryingpig.svg";
+    submitCategory.setAttribute("disabled", true);
   } else {
     totalCash.innerText = "";
     totalCash.append(updatedTotal);
   }
+  const priceofitem = Number(document.querySelector("#amount").value);
+  console.log(priceofitem);
+  const categoryIdentify = document.querySelector("#category");
+  const categoryName =
+    categoryIdentify.options[categoryIdentify.selectedIndex].text;
+  console.log(categoryName);
+  const newestPurchase = new newItem(priceofitem, categoryName);
+  activityList.unshift(newestPurchase);
+  const buyIndex = categoryIdentify.selectedIndex;
+  refreshTotals(buyIndex, newestPurchase.price);
+  // updateActivity();
 });
+// switch declaration to keep totals working correctly
+let refreshTotals = (category, price = 0) => {
+  dollarsSpent[category] += price;
+  let totalDisplay;
+  switch (category) {
+    case 0:
+      totalDisplay = document.querySelector("#dollars1");
+      break;
+    case 1:
+      totalDisplay = document.querySelector("#dollars2");
+      break;
+    case 2:
+      totalDisplay = document.querySelector("#dollars3");
+      break;
+    case 3:
+      totalDisplay = document.querySelector("#dollars4");
+      break;
+  }
+  totalDisplay.innerHTML = `$${dollarsSpent[category].toFixed(2)}`;
+  console.log(dollarsSpent);
+  // if (dollarsSpent[category] > updatedTotal) {
+  //   priceDisplay.classList.add("display-none");
+  // }
+  //   if (categorySpent[category] > categoryBudget[category]) {
+  //     priceDisplay.classList.add('over-category-budget');
+  // } else if (categorySpent[category] >= 0.75 * categoryBudget[category]) {
+  //     priceDisplay.classList.add('near-category-budget');
+  // } else {
+  //     priceDisplay.classList.remove('over-category-budget');
+  //     priceDisplay.classList.remove('near-category-budget');
+  // }
+};
