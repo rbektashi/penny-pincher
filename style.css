@@ -238,8 +238,37 @@ body {
   background-color: white;
   font-family: "Roboto", sans-serif;
   padding: 5px;
+  border: none;
 }
 
 .add-moolah:hover {
-  background-color: #01ad8b;
+  background-color: #7dfae1;
+}
+
+#amount {
+  font-family: "Roboto", sans-serif;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  height: 20px;
+  text-align: center;
+  margin: 10px 0;
+}
+#category {
+  font-family: "Roboto", sans-serif;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  height: 20px;
+  text-align: center;
+  margin: 10px 0;
+}
+select {
+  font-family: "FontAwesome", "sans-serif";
+}
+.container-cash {
+  font-family: "FontAwesome", "Roboto", sans-serif;
+}
+select > option {
+  background: #7dfae1;
 }

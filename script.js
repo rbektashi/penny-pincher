@@ -6,6 +6,16 @@ let form = document.querySelector(".form-container");
 
 let submitBtn = document.querySelector(".login-btn");
 
+class newItem {
+  constructor(price, category) {
+    this.price = price;
+    this.category = category;
+  }
+}
+
+let activityList = [];
+let dollarsSpent = [0, 0, 0, 0];
+
 submitBtn.addEventListener("click", (e) => {
   form.classList.add("display-none");
   weeksContainer.classList.remove("display-none");
@@ -136,9 +146,8 @@ submitCategory.addEventListener("click", (e) => {
   let categoryIcon = document.createElement("div");
   categoryIcon.innerText = ` ${categoryAmt} ${categoryType}`;
   console.log(categoryIcon);
-
   let total = parseFloat(totalCash.innerText);
-
+  totalCash.innerText = "";
   let x = total;
   let y = categoryAmt;
   let updatedTotal = x - y;
@@ -148,4 +157,36 @@ submitCategory.addEventListener("click", (e) => {
     totalCash.innerText = "";
     totalCash.append(updatedTotal);
   }
+  const priceofitem = Number(document.querySelector("#amount").value);
+  console.log(priceofitem);
+  const categoryIdentify = document.querySelector("#category");
+  const categoryName =
+    categoryIdentify.options[categoryIdentify.selectedIndex].text;
+  console.log(categoryName);
+  const newestPurchase = new newItem(priceofitem, categoryName);
+  activityList.unshift(newestPurchase);
+  const buyIndex = categoryIdentify.selectedIndex;
+  refreshTotals(buyIndex, newestPurchase.price);
+  // updateActivity();
 });
+
+let refreshTotals = (category, price = 0) => {
+  dollarsSpent[category] += price;
+  let totalDisplay;
+  switch (category) {
+    case 0:
+      totalDisplay = document.querySelector("#dollars1");
+      break;
+    case 1:
+      totalDisplay = document.querySelector("#dollars2");
+      break;
+    case 2:
+      totalDisplay = document.querySelector("#dollars3");
+      break;
+    case 3:
+      totalDisplay = document.querySelector("#dollars4");
+      break;
+  }
+  totalDisplay.innerHTML = `$${dollarsSpent[category].toFixed(2)}`;
+  console.log(dollarsSpent);
+};
