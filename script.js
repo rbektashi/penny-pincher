@@ -163,6 +163,11 @@ submitCategory.addEventListener("click", (e) => {
     categoryIdentify.options[categoryIdentify.selectedIndex].text;
   console.log(categoryName);
   const newestPurchase = new newItem(priceofitem, categoryName);
+  let activityTracking = document.querySelector(".activity");
+  let actiV = document.createElement("p");
+  actiV.innerHTML = `<i class="far fa-minus-square remove-icon"></i> ${categoryName} $${priceofitem}`;
+  activityTracking.append(actiV);
+  console.log(newestPurchase);
   activityList.unshift(newestPurchase);
   const buyIndex = categoryIdentify.selectedIndex;
   refreshTotals(buyIndex, newestPurchase.price);
@@ -188,15 +193,4 @@ let refreshTotals = (category, price = 0) => {
   }
   totalDisplay.innerHTML = `$${dollarsSpent[category].toFixed(2)}`;
   console.log(dollarsSpent);
-  // if (dollarsSpent[category] > updatedTotal) {
-  //   priceDisplay.classList.add("display-none");
-  // }
-  //   if (categorySpent[category] > categoryBudget[category]) {
-  //     priceDisplay.classList.add('over-category-budget');
-  // } else if (categorySpent[category] >= 0.75 * categoryBudget[category]) {
-  //     priceDisplay.classList.add('near-category-budget');
-  // } else {
-  //     priceDisplay.classList.remove('over-category-budget');
-  //     priceDisplay.classList.remove('near-category-budget');
-  // }
 };
