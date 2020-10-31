@@ -1,31 +1,26 @@
 "use-strict";
-
-//  creating code to remove form.
-
+// main form declaration
 let form = document.querySelector(".form-container");
-
 let submitBtn = document.querySelector(".login-btn");
-
+// constructor for transaction item
 class newItem {
   constructor(price, category) {
     this.price = price;
     this.category = category;
   }
 }
-
+// set defaults to zero for activity and categories ||| used to get updated totals
 let activityList = [];
 let dollarsSpent = [0, 0, 0, 0];
-
+// hiding landing page to show main content
 submitBtn.addEventListener("click", (e) => {
   form.classList.add("display-none");
   weeksContainer.classList.remove("display-none");
 });
-
+// setting username on main screen
 let formUsername = document.querySelector(".username-add");
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-
   let snapshot = new FormData(form);
   let name = snapshot.get("username");
   let username = document.createElement("p");
@@ -33,7 +28,7 @@ form.addEventListener("submit", (e) => {
   formUsername.innerHTML = `Hello! <i class="fas fa-user-circle"></i> ${name}`;
   console.log(name);
 });
-
+// static data for user
 let weeks = [
   {
     week: "Week Four",
@@ -72,7 +67,7 @@ burgerNavigation.addEventListener("click", (e) => {
   e.preventDefault();
   slideout.classList.toggle("display-none");
 });
-
+// populating static data to main content page
 let display = () => {
   weeks.forEach((item, index) => {
     let weeks = document.createElement("div");
@@ -102,12 +97,13 @@ let display = () => {
   });
 };
 display();
-
+// hiding side panel on slideout click
 slideout.addEventListener("click", (e) => {
   if (e.target.classList.contains("slideout")) {
     slideout.classList.toggle("display-none");
   }
 });
+// delete week by clicking trash can
 weeksContainer.addEventListener("click", (e) => {
   weeksContainer.innerHTML = "";
   if (e.target.classList.contains("delete")) {
@@ -118,6 +114,7 @@ weeksContainer.addEventListener("click", (e) => {
   }
   display();
 });
+// query selectors to dynamically track total budget
 let addMoolah = document.querySelector(".add-moolah");
 let mainForm = document.querySelector(".main-form");
 let totalCash = document.querySelector(".total-cash");
@@ -135,13 +132,12 @@ addMoolah.addEventListener("click", (e) => {
   removeCashForm.classList.add("display-none");
   showCategory.classList.remove("display-none");
 });
-
+// main functionality to re render total and capture transaction data
 let submitCategory = document.querySelector(".submit-category");
 submitCategory.addEventListener("click", (e) => {
   e.preventDefault();
   let category = new FormData(mainForm);
   let categoryAmt = category.get("amount");
-  // let categorySelected = document.createElement("div");
   let categoryType = category.get("category");
   let categoryIcon = document.createElement("div");
   categoryIcon.innerText = ` ${categoryAmt} ${categoryType}`;
@@ -169,7 +165,7 @@ submitCategory.addEventListener("click", (e) => {
   refreshTotals(buyIndex, newestPurchase.price);
   // updateActivity();
 });
-
+// switch declaration to keep totals working correctly
 let refreshTotals = (category, price = 0) => {
   dollarsSpent[category] += price;
   let totalDisplay;
