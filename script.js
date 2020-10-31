@@ -149,6 +149,9 @@ submitCategory.addEventListener("click", (e) => {
   let updatedTotal = x - y;
   if (updatedTotal < 0) {
     alert("Watch out, you're broke!");
+    let cryingPig = document.querySelector(".slideout-brand");
+    cryingPig.src = "assets/cryingpig.svg";
+    submitCategory.setAttribute("disabled", true);
   } else {
     totalCash.innerText = "";
     totalCash.append(updatedTotal);
@@ -185,4 +188,15 @@ let refreshTotals = (category, price = 0) => {
   }
   totalDisplay.innerHTML = `$${dollarsSpent[category].toFixed(2)}`;
   console.log(dollarsSpent);
+  // if (dollarsSpent[category] > updatedTotal) {
+  //   priceDisplay.classList.add("display-none");
+  // }
+  //   if (categorySpent[category] > categoryBudget[category]) {
+  //     priceDisplay.classList.add('over-category-budget');
+  // } else if (categorySpent[category] >= 0.75 * categoryBudget[category]) {
+  //     priceDisplay.classList.add('near-category-budget');
+  // } else {
+  //     priceDisplay.classList.remove('over-category-budget');
+  //     priceDisplay.classList.remove('near-category-budget');
+  // }
 };
