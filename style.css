@@ -316,7 +316,7 @@ select > option {
     #c6ffdd
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to right,
+    to left,
     #f7797d,
     #fbd786,
     #c6ffdd
