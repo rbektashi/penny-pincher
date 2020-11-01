@@ -33,28 +33,28 @@ form.addEventListener("submit", (e) => {
 // static data for user
 let weeks = [
   {
-    week: "Week Four",
+    week: "Week 4",
     entertainment: 75,
     food: 100,
     clothing: 25,
     bills: 850,
   },
   {
-    week: "Week Three",
+    week: "Week 3",
     entertainment: 125,
     food: 80,
     clothing: 150,
     bills: 350,
   },
   {
-    week: "Week Two",
+    week: "Week 2",
     entertainment: 220,
     food: 125,
     clothing: 0,
     bills: 110,
   },
   {
-    week: "Week One",
+    week: "Week 1",
     entertainment: 14,
     food: 100,
     clothing: 10,
@@ -71,6 +71,7 @@ burgerNavigation.addEventListener("click", (e) => {
 });
 // populating static data to main content page
 let display = () => {
+  weeksContainer.innerHTML = "";
   weeks.forEach((item, index) => {
     let weeks = document.createElement("div");
     weeks.classList.add("week-block");
@@ -202,6 +203,7 @@ let refreshTotals = (category, price = 0) => {
   }
   totalDisplay.innerHTML = `$${dollarsSpent[category].toFixed(2)}`;
   console.log(dollarsSpent);
+  refreshTotals.reset();
 };
 
 function totalBar() {
@@ -215,3 +217,32 @@ function totalBar() {
   }
   console.log(percentageBar);
 }
+
+console.log(dollarsSpent);
+console.log(Object.assign({}, dollarsSpent));
+
+let addWeekButton = document.querySelector(".add-week-btn");
+addWeekButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log(dollarsSpent[0]);
+  let entertainmentAmount = dollarsSpent[0];
+  console.log(entertainmentAmount);
+  let dollarsone = document.querySelector("#dollars1");
+  console.log(dollarsone);
+  for (let i = 5; i < weeks.length; i++) {
+    console.log(i);
+  }
+
+  let correctArray = Object.assign({}, dollarsSpent);
+  let newWeek = {
+    week: `Week ${weeks.length + 1}`,
+    entertainment: correctArray[0],
+    food: correctArray[1],
+    clothing: correctArray[2],
+    bills: correctArray[3],
+  };
+  console.log(newWeek);
+  weeks.unshift(newWeek);
+  console.log(weeks);
+  display();
+});
