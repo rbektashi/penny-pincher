@@ -12,6 +12,8 @@ class newItem {
 // set defaults to zero for activity and categories ||| used to get updated totals
 let activityList = [];
 let dollarsSpent = [0, 0, 0, 0];
+let totalCashSpent = 0;
+let totalBudget = 0;
 // hiding landing page to show main content
 
 // this is the same event listener as form.addEventListener
@@ -133,6 +135,7 @@ addMoolah.addEventListener("click", (e) => {
   cashplus.innerText = cash;
   console.log(cash);
   totalCash.append(`${cash}`);
+  totalBudget = Number(cash);
   removeCashForm.classList.add("display-none");
   showCategory.classList.remove("display-none");
 });
@@ -161,16 +164,27 @@ submitCategory.addEventListener("click", (e) => {
     totalCash.append(updatedTotal);
   }
   const priceofitem = Number(document.querySelector("#amount").value);
+  if (priceofitem > 0) {
+    totalCashSpent += priceofitem;
+    totalBar();
+  }
+  console.log(totalCashSpent);
   console.log(priceofitem);
   const categoryIdentify = document.querySelector("#category");
   const categoryName =
     categoryIdentify.options[categoryIdentify.selectedIndex].text;
   console.log(categoryName);
   const newestPurchase = new newItem(priceofitem, categoryName);
+  let activityTracking = document.querySelector(".activity");
+  let actiV = document.createElement("p");
+  actiV.innerHTML = `<i class="far fa-minus-square remove-icon"></i> ${categoryName} $${priceofitem}`;
+  activityTracking.append(actiV);
+  console.log(newestPurchase);
   activityList.unshift(newestPurchase);
   const buyIndex = categoryIdentify.selectedIndex;
   refreshTotals(buyIndex, newestPurchase.price);
   // updateActivity();
+  mainForm.reset();
 });
 // switch declaration to keep totals working correctly
 let refreshTotals = (category, price = 0) => {
@@ -192,15 +206,16 @@ let refreshTotals = (category, price = 0) => {
   }
   totalDisplay.innerHTML = `$${dollarsSpent[category].toFixed(2)}`;
   console.log(dollarsSpent);
-  // if (dollarsSpent[category] > updatedTotal) {
-  //   priceDisplay.classList.add("display-none");
-  // }
-  //   if (categorySpent[category] > categoryBudget[category]) {
-  //     priceDisplay.classList.add('over-category-budget');
-  // } else if (categorySpent[category] >= 0.75 * categoryBudget[category]) {
-  //     priceDisplay.classList.add('near-category-budget');
-  // } else {
-  //     priceDisplay.classList.remove('over-category-budget');
-  //     priceDisplay.classList.remove('near-category-budget');
-  // }
 };
+
+function totalBar() {
+  const percentageBar = (totalCashSpent / totalBudget) * 100;
+  document.getElementById("myBar").style.width = `${percentageBar}%`;
+  document.getElementById(
+    "myBar"
+  ).innerHTML = `<img class="coin-bar" src="assets/pigcoin.svg" />${totalCashSpent}`;
+  if (totalBudget < totalCashSpent) {
+    document.getElementById("myBar").style.width = `100%`;
+  }
+  console.log(percentageBar);
+}
