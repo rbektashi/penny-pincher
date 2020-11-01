@@ -13,6 +13,8 @@ class newItem {
 let activityList = [];
 let dollarsSpent = [0, 0, 0, 0];
 // hiding landing page to show main content
+
+// this is the same event listener as form.addEventListener
 submitBtn.addEventListener("click", (e) => {
   form.classList.add("display-none");
   weeksContainer.classList.remove("display-none");
@@ -124,6 +126,8 @@ let showCategory = document.querySelector(".show-category");
 addMoolah.addEventListener("click", (e) => {
   e.preventDefault();
   let cashAdd = new FormData(mainForm);
+  console.log(mainForm);
+  console.log(cashAdd);
   let cash = cashAdd.get("moolah");
   let cashplus = document.createElement("p");
   cashplus.innerText = cash;
