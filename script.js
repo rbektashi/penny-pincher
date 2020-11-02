@@ -94,7 +94,7 @@ let display = () => {
     bills.innerText = item.bills;
     bills.innerHTML = `<img class="ent-size" src="assets/home.svg"/> Bills: $${item.bills}`;
     let deletebutton = document.createElement("button");
-    deletebutton.innerHTML = `<img class="delete-icon delete" src="assets/delete.svg" />`;
+    deletebutton.innerHTML = `<img class="delete-icon delete" src="assets/delete.svg" data-index="${index}"/>`;
     deletebutton.setAttribute("data-index", index);
     deletebutton.classList.add("delete");
     weeks.append(week, entertainment, food, clothing, bills, deletebutton);
