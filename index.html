@@ -1,126 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Penny</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-  </head>
 
-  <body>
-    <main></main>
-    <form class="form-container">
-      <div class="branding">
-        <h1>Penny Pincher</h1>
-      </div>
-      <img class="logo-pig" src="assets/saving.svg" alt="Pig Logo" />
-      <div class="login-form">
-        <label class="labels" for="username"
-          ><i class="fas fa-user-circle"></i> Username</label
-        >
-        <input class="inputs" type="text" id="username" name="username" />
-        <label class="labels" for="password"
-          ><i class="fas fa-key"></i> Password</label
-        >
-        <input class="inputs" type="password" id="password" name="password" />
-        <button class="login-btn">Start Budgeting</button>
-        <a class="link" href="#">
-          <p class="forgot">Oops! I forgot my password</p>
-        </a>
-      </div>
-    </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Penny</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+</head>
 
-    <main>
-      <header class="header-2">
-        <h1 class="logo2">Penny Pincher</h1>
-        <i class="fas fa-hamburger"></i>
-      </header>
-      <div class="weeks-container display-none"></div>
-      <div class="slideout popup display-none">
-        <form class="main-form">
-          <img class="slideout-brand" src="assets/pigcoin.svg" alt="" />
+<body>
+  <main></main>
+  <form class="form-container">
+    <div class="branding">
+      <h1>Penny Pincher</h1>
+    </div>
+    <img class="logo-pig" src="assets/saving.svg" alt="Pig Logo" />
+    <div class="login-form">
+      <label class="labels" for="username"><i class="fas fa-user-circle"></i> Username</label>
+      <input class="inputs" type="text" id="username" name="username" />
+      <label class="labels" for="password"><i class="fas fa-key"></i> Password</label>
+      <input class="inputs" type="password" id="password" name="password" />
+      <button class="login-btn">Start Budgeting</button>
+      <a class="link" href="#">
+        <p class="forgot">Oops! I forgot my password</p>
+      </a>
+    </div>
+  </form>
+
+  <main>
+    <header class="header-2">
+      <h1 class="logo2">Penny Pincher</h1>
+      <i class="fas fa-hamburger"></i>
+    </header>
+    <div class="weeks-container display-none"></div>
+    <div class="slideout popup display-none">
+      <form class="main-form">
+        <img class="slideout-brand" src="assets/pigcoin.svg" alt="" />
+        <p class="username-add"></p>
+        <div class="container-cash">
           <p class="username-add"></p>
-          <div class="container-cash">
-            <p class="username-add"></p>
-            Budget: $<span class="total-cash"></span>
-          </div>
-          <div class="remove-cash">
-            <label class="cash-label" for=""></label>
-            $<input
-              class="slideout-input"
-              type="number"
-              placeholder="Starting Budget"
-              id="moolah"
-              name="moolah"
-            />
-            <button class="add-moolah">Add Moolah</button>
-          </div>
-          <div class="display-none show-category">
-            $<input
-              type="number"
-              name="amount"
-              id="amount"
-              value=""
-              placeholder="Item Price"
-            />
-            <select name="category" id="category">
-              <option value="1">Entertainment</option>
-              <option value="2">Food</option>
-              <option value="3">Clothing</option>
-              <option value="4">Bills</option>
-            </select>
-            <button class="submit-category">Submit Category</button>
-          </div>
-          <div id="myProgress">
-            <div id="myBar"></div>
-          </div>
-          <div class="category-icons">
-            <p class="icon">
-              <img class="ent-size" src="assets/ticket (2).svg" /> Entertainment
-              <span id="dollars1">$0.00</span>
-            </p>
-            <p class="icon">
-              <img class="ent-size" src="assets/vegetables.svg" /> Food
-              <span id="dollars2">$0.00</span>
-            </p>
-            <p class="icon">
-              <img class="ent-size" src="assets/hoodie.svg" /> Clothing
-              <span id="dollars3">$0.00</span>
-            </p>
-            <p class="icon">
-              <img class="ent-size" src="assets/home.svg" /> Bills
-              <span id="dollars4">$0.00</span>
-            </p>
-          </div>
-          <div class="activity-style">
-            <p class="recent-transactions">Recent Transactions</p>
-            <div class="activity"></div>
-          </div>
-          <form class="new-week-add">
-            <button class="add-week-btn">Add Week</button>
-          </form>
+          Budget: $<span class="total-cash"></span>
+        </div>
+        <div class="remove-cash">
+          <label class="cash-label" for=""></label>
+          $<input class="slideout-input" type="number" placeholder="Starting Budget" id="moolah" name="moolah" />
+          <button class="add-moolah">Add Moolah</button>
+        </div>
+        <div class="display-none show-category">
+          $<input class="category-input" type="number" name="amount" id="amount" value="" placeholder="Item Price" />
+          <select name="category" id="category">
+            <option value="1">Entertainment</option>
+            <option value="2">Food</option>
+            <option value="3">Clothing</option>
+            <option value="4">Bills</option>
+          </select>
+          <button class="submit-category">Submit Category</button>
+        </div>
+        <div id="myProgress">
+          <div id="myBar"></div>
+        </div>
+        <div class="category-icons">
+          <p class="icon">
+            <img class="ent-size" src="assets/ticket (2).svg" /> Entertainment
+            <span id="dollars1">$0.00</span>
+          </p>
+          <p class="icon">
+            <img class="ent-size" src="assets/vegetables.svg" /> Food
+            <span id="dollars2">$0.00</span>
+          </p>
+          <p class="icon">
+            <img class="ent-size" src="assets/hoodie.svg" /> Clothing
+            <span id="dollars3">$0.00</span>
+          </p>
+          <p class="icon">
+            <img class="ent-size" src="assets/home.svg" /> Bills
+            <span id="dollars4">$0.00</span>
+          </p>
+        </div>
+        <div class="activity-style">
+          <p class="recent-transactions">Recent Transactions</p>
+          <div class="activity"></div>
+        </div>
+        <form class="new-week-add">
+          <button class="add-week-btn">Add Week</button>
+          <button class="sign-out-btn">Sign out</button>
         </form>
-      </div>
-    </main>
 
-    <script src="script.js"></script>
-  </body>
+      </form>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
