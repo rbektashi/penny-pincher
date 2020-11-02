@@ -142,6 +142,7 @@ addMoolah.addEventListener("click", (e) => {
 });
 // main functionality to re render total and capture transaction data
 let submitCategory = document.querySelector(".submit-category");
+let categoryInput = document.querySelector(".category-input");
 submitCategory.addEventListener("click", (e) => {
   e.preventDefault();
   let category = new FormData(mainForm);
@@ -155,7 +156,7 @@ submitCategory.addEventListener("click", (e) => {
   let x = total;
   let y = categoryAmt;
   let updatedTotal = x - y;
-  if (updatedTotal < 0) {
+  if (updatedTotal <= 0) {
     alert("Watch out, you're broke!");
     let cryingPig = document.querySelector(".slideout-brand");
     cryingPig.src = "assets/cryingpig.svg";
@@ -169,6 +170,7 @@ submitCategory.addEventListener("click", (e) => {
     totalCashSpent += priceofitem;
     totalBar();
   }
+
   console.log(totalCashSpent);
   console.log(priceofitem);
   const categoryIdentify = document.querySelector("#category");
@@ -184,8 +186,6 @@ submitCategory.addEventListener("click", (e) => {
   activityList.unshift(newestPurchase);
   const buyIndex = categoryIdentify.selectedIndex;
   refreshTotals(buyIndex, newestPurchase.price);
-  // updateActivity();
-  mainForm.reset();
 });
 // switch declaration to keep totals working correctly
 let refreshTotals = (category, price = 0) => {
@@ -250,3 +250,6 @@ addWeekButton.addEventListener("click", (e) => {
   console.log(weeks);
   display();
 });
+let signOutBtn = document.querySelector(".sign-out-btn");
+signOutBtn.addEventListener("click", (e) => {});
+mainForm.reset();
